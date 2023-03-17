@@ -1,0 +1,53 @@
+TARGET_ARCH := arm
+TARGET_NO_BOOTLOADER := true
+TARGET_BOARD_PLATFORM := MSM8916
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a9
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_BOOTLOADER_BOARD_NAME := j3ltespr
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := j3ltespr,SM-J320P,SM-J320P,MSM8916
+
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci androidboot.selinux=permissive
+
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x80008000 --ramdisk_offset 0x82000000 --tags_offset 0x81e00000 --dt device/samsung/j3ltespr/prebuilt/dtb
+# prebuilt kernel
+TARGET_PREBUILT_KERNEL := device/samsung/j3ltespr/prebuilt/zImage
+
+BOARD_BOOTIMAGE_PARTITION_SIZE := 13312000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15360000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2867200000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 11971564000
+BOARD_CACHEIMAGE_PARTITION_SIZE := 307200000
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_FLASH_BLOCK_SIZE := 262144
+
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+# opengl
+BOARD_USE_BGRA_8888 := true
+# Charger
+BOARD_BATTERY_DEVICE_NAME := battery
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+CHARGING_ENABLED_PATH := "/sys/class/power_supply/battery/batt_lp_charging"
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TW_BRIGHTNESS_PATH := "/sys/devices/7824900.sdhci/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_INTERNAL_STORAGE_PATH := "/data/media/0"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
